@@ -11,14 +11,12 @@ struct Parser {
     
     let host = "https://pokeapi.co/api/v2/"
     
-    func parsePokemonList(endpoint : String?, urlString: String?, onSuccess: @escaping (PokemonListData) -> Void, onError: @escaping (Error) -> Void) {
+    func parsePokemonList(endpoint : String = "pokemon/", urlString: String?, onSuccess: @escaping (PokemonListData) -> Void, onError: @escaping (Error) -> Void) {
         var url : URL?
         if let myUrl = urlString{
             url = URL(string: myUrl)
         } else {
-            if let myEndpoint = endpoint {
-                url = URL(string: host+myEndpoint)
-            }
+            url = URL(string: host+endpoint)
         }
         
         URLSession.shared.dataTask(with: url!) {

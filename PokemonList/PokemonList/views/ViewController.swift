@@ -29,13 +29,16 @@ class ViewController: UIViewController {
 
     private func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.prefetchDataSource = self
         tableView.register(PokemonListTableViewCell.self, forCellReuseIdentifier: "PokemonListCell")
         view.addSubview(tableView)
         
     }
     
     private func fetchPokemons() {
-        parser.parsePokemonList(endpoint: "pokemon/", urlString: nil, onSuccess: {
+        
+        parser.parsePokemonList(urlString: nextURL, onSuccess: {
             data in
             self.nextURL = data.next
             for elem in data.results! {
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController : UITableViewDataSource {
+extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokemons.count
     }
@@ -66,6 +69,34 @@ extension ViewController : UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected pokemon: \(pokemons[indexPath.item].name!) ")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
 }
 
+private extension ViewController {
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.item >= pokemons.count / 3
+    }
+    
+    func visibleIndexPathToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
+            let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+            return Array(indexPathsIntersection)
+    }
+}
+
+extension ViewController : UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+            fetchPokemons()
+        }
+    }
+    
+    
+}

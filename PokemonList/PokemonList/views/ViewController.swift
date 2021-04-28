@@ -64,7 +64,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonListCell") as? PokemonListTableViewCell {
             if let pokemonName = pokemons[indexPath.item].name {
-                cell.setupLabel(pokemonName, imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png")!)
+                cell.setup(pokemonName, imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.item+1).png")!)
                 return cell
             }
         }

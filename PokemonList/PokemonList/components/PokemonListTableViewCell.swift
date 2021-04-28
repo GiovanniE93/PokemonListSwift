@@ -24,8 +24,7 @@ class PokemonListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupLabel(_ pokemonName : String, imageURL: URL) {
-        print("FRAME: \(contentView.frame.midY)")
+    func setup(_ pokemonName : String, imageURL: URL) {
         nameLabel.frame = CGRect(x: 100, y: contentView.frame.midY / 2, width: 300, height: 30)
         nameLabel.text = pokemonName
         nameLabel.textColor = .black

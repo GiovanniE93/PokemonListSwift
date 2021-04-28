@@ -15,6 +15,7 @@
 		8D8E14002637549800E0E490 /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E13FF2637549800E0E490 /* PokemonData.swift */; };
 		8D8E14082637589C00E0E490 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E14072637589C00E0E490 /* Parser.swift */; };
 		8DE1528E263768E30062FFDA /* PokemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1528D263768E30062FFDA /* PokemonListTableViewCell.swift */; };
+		AC3B4B962639479200694726 /* PokemonDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3B4B952639479200694726 /* PokemonDetailsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8D8E13FF2637549800E0E490 /* PokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
 		8D8E14072637589C00E0E490 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		8DE1528D263768E30062FFDA /* PokemonListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListTableViewCell.swift; sourceTree = "<group>"; };
+		AC3B4B952639479200694726 /* PokemonDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				8D8E13FF2637549800E0E490 /* PokemonData.swift */,
+				AC3B4B952639479200694726 /* PokemonDetailsData.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				8D8E13E82637537F00E0E490 /* SceneDelegate.swift in Sources */,
 				8DE1528E263768E30062FFDA /* PokemonListTableViewCell.swift in Sources */,
 				8D8E14002637549800E0E490 /* PokemonData.swift in Sources */,
+				AC3B4B962639479200694726 /* PokemonDetailsData.swift in Sources */,
 				8D8E14082637589C00E0E490 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

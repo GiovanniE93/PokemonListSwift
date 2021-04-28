@@ -25,14 +25,14 @@ class PokemonListTableViewCell: UITableViewCell {
     }
     
     func setup(_ pokemonName : String, imageURL: URL) {
-        nameLabel.frame = CGRect(x: 100, y: contentView.frame.midY / 2, width: 300, height: 30)
+        nameLabel.frame = CGRect(x: 100, y: contentView.frame.midY, width: 300, height: 30)
         nameLabel.text = pokemonName
         nameLabel.textColor = .black
         myImage.frame = CGRect(x: 0, y: contentView.frame.midY / 2, width: 50, height: 50)
         myImage.load(url: imageURL)
         addSubview(myImage)
         addSubview(nameLabel)
-        self.selectedBackgroundView = nil
+        selectionStyle = .none
     }
 
 }

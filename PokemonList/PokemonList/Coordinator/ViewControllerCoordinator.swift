@@ -31,8 +31,4 @@ extension ViewControllerCoordinator : ViewControllerProtocol {
         presenter.pushViewController(pokemonDetailsVC, animated: true)
     }
     
-    func dismissPokemonDetails() {
-        presenter.popViewController(animated: true)
-    }
-    
 }

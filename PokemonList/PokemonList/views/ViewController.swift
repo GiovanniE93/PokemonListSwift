@@ -11,7 +11,6 @@ import UIKit
 
 protocol ViewControllerProtocol : class {
     func watchPokemonDetails(_ pokemonDetails: PokemonDetailsData)
-    func dismissPokemonDetails()
 }
 
 class ViewController: UIViewController {

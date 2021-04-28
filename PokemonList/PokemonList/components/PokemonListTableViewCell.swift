@@ -36,6 +36,7 @@ class PokemonListTableViewCell: UITableViewCell {
 
 }
 
+//Extension of UIImageView to load images from URL
 extension UIImageView {
     func load(url : URL) {
         DispatchQueue.global().async { [weak self] in

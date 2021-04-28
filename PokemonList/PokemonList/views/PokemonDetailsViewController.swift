@@ -8,13 +8,23 @@
 import UIKit
 
 class PokemonDetailsViewController: UIViewController {
+    
+    var pokemonDetails : PokemonDetailsData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavigationBar()
+        self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
     }
     
+    private func setupNavigationBar() {
+        if let name = pokemonDetails?.name {
+            self.title = name + " details"
+        } else {
+            self.title = "Pokemon Details"
+        }
+    }
 
     /*
     // MARK: - Navigation

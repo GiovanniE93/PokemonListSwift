@@ -7,12 +7,21 @@
 
 import UIKit
 
+//MARK: - ViewControllerProtocol
+
+protocol ViewControllerProtocol : class {
+    func watchPokemonDetails(_ pokemonDetails: PokemonDetailsData)
+    func dismissPokemonDetails()
+}
+
 class ViewController: UIViewController {
 
     private var pokemons = [PokemonData]()
     private var nextURL : String?
     private let parser = Parser()
     var tableView = UITableView(frame: UIScreen.main.bounds)
+    
+    weak var delegate : ViewControllerProtocol?
     
     override func viewDidLoad() {
         view.backgroundColor = .white
@@ -77,6 +86,9 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
         parser.parsePokemonDetails(named: pokemons[indexPath.item].name!, onSuccess: {
             data in
             print("\(data.name!) fetched details")
+            DispatchQueue.main.sync {
+                self.delegate?.watchPokemonDetails(data)
+            }
 //            dovrei lanciare la view dei dettagli
         }, onError: { error in
             print("[PARSER] error during the request! \(error.localizedDescription)")
@@ -86,6 +98,8 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+
     
 }
 

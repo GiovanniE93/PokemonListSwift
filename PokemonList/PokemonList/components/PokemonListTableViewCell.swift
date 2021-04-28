@@ -32,6 +32,7 @@ class PokemonListTableViewCell: UITableViewCell {
         myImage.load(url: imageURL)
         addSubview(myImage)
         addSubview(nameLabel)
+        self.selectedBackgroundView = nil
     }
 
 }

@@ -36,8 +36,8 @@ struct Parser {
         }.resume()
     }
     
-    func parsePokemonDetails(urlString : String, onSuccess: @escaping (PokemonDetailsData) -> Void, onError: @escaping(Error) -> Void) {
-        print("PARSER - urlString :\(urlString)")
+    func parsePokemonDetails(named : String, onSuccess: @escaping (PokemonDetailsData) -> Void, onError: @escaping(Error) -> Void) {
+        let urlString = host + "pokemon/" + named
          let url = URL(string: urlString)!
         URLSession.shared.dataTask(with: url){
             data, response, error in

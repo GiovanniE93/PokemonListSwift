@@ -22,10 +22,6 @@ class ViewController: UIViewController {
         setupTableView()
         // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        fetchPokemons()
-    }
 
     private func setupTableView() {
         tableView.dataSource = self
@@ -72,9 +68,9 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected pokemon: \(pokemons[indexPath.item].name!) ")
         print("URL: \(pokemons[indexPath.item].url!)")
-        parser.parsePokemonDetails(urlString: pokemons[indexPath.item].url!, onSuccess: {
+        parser.parsePokemonDetails(named: pokemons[indexPath.item].name!, onSuccess: {
             data in
-            print("\(data.name) fetched details")
+            print("\(data.name!) fetched details")
 //            dovreei lanciare la view dei dettagli
         }, onError: { error in
             print("[PARSER] error during the request! \(error.localizedDescription)")

@@ -46,11 +46,11 @@ class ViewController: UIViewController {
             }
             print("COUNT: \(self.pokemons.count) ")
             print("COUNT: \(self.nextURL!)")
+            DispatchQueue.main.sync{self.tableView.reloadData()}
         }, onError: {
             error in
             print(error)
         })
-        self.tableView.reloadData()
         print("DIM: \(pokemons.count) ")
     }
 
@@ -77,7 +77,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
         parser.parsePokemonDetails(named: pokemons[indexPath.item].name!, onSuccess: {
             data in
             print("\(data.name!) fetched details")
-//            dovreei lanciare la view dei dettagli
+//            dovrei lanciare la view dei dettagli
         }, onError: { error in
             print("[PARSER] error during the request! \(error.localizedDescription)")
         })

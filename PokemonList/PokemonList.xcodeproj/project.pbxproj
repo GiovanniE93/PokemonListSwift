@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8D8E13E62637537F00E0E490 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E13E52637537F00E0E490 /* AppDelegate.swift */; };
-		8D8E13E82637537F00E0E490 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E13E72637537F00E0E490 /* SceneDelegate.swift */; };
 		8D8E13EA2637537F00E0E490 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E13E92637537F00E0E490 /* ViewController.swift */; };
 		8D8E13EF2637537F00E0E490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8E13EE2637537F00E0E490 /* Assets.xcassets */; };
 		8D8E13F22637537F00E0E490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8E13F02637537F00E0E490 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		8D8E13E22637537F00E0E490 /* PokemonList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8E13E52637537F00E0E490 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D8E13E72637537F00E0E490 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8D8E13E92637537F00E0E490 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D8E13EE2637537F00E0E490 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D8E13F12637537F00E0E490 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 				8D8E14022637555D00E0E490 /* view models */,
 				8D8E13FE2637548C00E0E490 /* models */,
 				8D8E13E52637537F00E0E490 /* AppDelegate.swift */,
-				8D8E13E72637537F00E0E490 /* SceneDelegate.swift */,
 				8D8E13EE2637537F00E0E490 /* Assets.xcassets */,
 				8D8E13F02637537F00E0E490 /* LaunchScreen.storyboard */,
 				8D8E13F32637537F00E0E490 /* Info.plist */,
@@ -182,7 +179,6 @@
 			files = (
 				8D8E13EA2637537F00E0E490 /* ViewController.swift in Sources */,
 				8D8E13E62637537F00E0E490 /* AppDelegate.swift in Sources */,
-				8D8E13E82637537F00E0E490 /* SceneDelegate.swift in Sources */,
 				8DE1528E263768E30062FFDA /* PokemonListTableViewCell.swift in Sources */,
 				8D8E14002637549800E0E490 /* PokemonData.swift in Sources */,
 				AC3B4B962639479200694726 /* PokemonDetailsData.swift in Sources */,
@@ -329,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6XR24989A;
 				INFOPLIST_FILE = PokemonList/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -349,7 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6XR24989A;
 				INFOPLIST_FILE = PokemonList/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

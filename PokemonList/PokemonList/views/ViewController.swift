@@ -71,6 +71,14 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected pokemon: \(pokemons[indexPath.item].name!) ")
+        print("URL: \(pokemons[indexPath.item].url!)")
+        parser.parsePokemonDetails(urlString: pokemons[indexPath.item].url!, onSuccess: {
+            data in
+            print("\(data.name) fetched details")
+//            dovreei lanciare la view dei dettagli
+        }, onError: { error in
+            print("[PARSER] error during the request! \(error.localizedDescription)")
+        })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -36,4 +36,25 @@ struct Parser {
         }.resume()
     }
     
+    func parsePokemonDetails(urlString : String, onSuccess: @escaping (PokemonDetailsData) -> Void, onError: @escaping(Error) -> Void) {
+        print("PARSER - urlString :\(urlString)")
+         let url = URL(string: urlString)!
+        URLSession.shared.dataTask(with: url){
+            data, response, error in
+            if let errore = error {
+                onError(errore)
+                return
+            }
+            if let myData = data {
+                print(data?.description)
+                do {
+                    let result = try JSONDecoder().decode(PokemonDetailsData.self, from: myData)
+                    onSuccess(result)
+                }catch {
+                    print("Errore durante la conversione! \(error.localizedDescription)")
+                }
+            }
+        }.resume()
+    }
+    
 }

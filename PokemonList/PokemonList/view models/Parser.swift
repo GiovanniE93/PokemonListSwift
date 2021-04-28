@@ -16,9 +16,11 @@ struct Parser {
         if let myUrl = urlString{
             url = URL(string: myUrl)
         } else {
-            url = URL(string: host+endpoint)
+            url = URL(string: host+endpoint+"?limit=350")
         }
-        
+        if urlString == "NO" {
+            return
+        }
         URLSession.shared.dataTask(with: url!) {
             data, response, error in
             if let errore = error {

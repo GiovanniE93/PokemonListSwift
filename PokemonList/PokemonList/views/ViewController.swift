@@ -36,16 +36,22 @@ class ViewController: UIViewController {
         
         parser.parsePokemonList(urlString: nextURL, onSuccess: {
             data in
-            self.nextURL = data.next
+            if let url = data.next {
+                self.nextURL = url
+            } else {
+                self.nextURL = "NO"
+            }
             for elem in data.results! {
                 self.pokemons.append(elem)
             }
-            print(self.pokemons.count)
+            print("COUNT: \(self.pokemons.count) ")
+            print("COUNT: \(self.nextURL!)")
         }, onError: {
             error in
             print(error)
         })
         self.tableView.reloadData()
+        print("DIM: \(pokemons.count) ")
     }
 
 }
@@ -58,7 +64,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonListCell") as? PokemonListTableViewCell {
             if let pokemonName = pokemons[indexPath.item].name {
-                cell.setupLabel(pokemonName)
+                cell.setupLabel(pokemonName, imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png")!)
                 return cell
             }
         }
@@ -78,14 +84,14 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 100
     }
     
 }
 
 private extension ViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.item >= pokemons.count / 3
+        return indexPath.item >= pokemons.count / 3 && self.nextURL != "NO"
     }
     
     func visibleIndexPathToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {

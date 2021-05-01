@@ -48,12 +48,12 @@ struct Parser {
                 return
             }
             if let myData = data {
-                print(data?.description)
                 do {
                     let result = try JSONDecoder().decode(PokemonDetailsData.self, from: myData)
                     onSuccess(result)
                 }catch {
                     print("Errore durante la conversione! \(error.localizedDescription)")
+                    return
                 }
             }
         }.resume()

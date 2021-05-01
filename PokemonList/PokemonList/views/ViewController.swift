@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     private var pokemons = [PokemonData]()
     private var nextURL : String?
     private let parser = Parser()
+    private var isFree : Bool = true
     var tableView = UITableView(frame: UIScreen.main.bounds)
     
     weak var delegate : ViewControllerProtocol?
@@ -42,6 +43,7 @@ class ViewController: UIViewController {
     
     private func fetchPokemons() {
         
+        isFree = false
         parser.parsePokemonList(urlString: nextURL, onSuccess: {
             data in
             if let url = data.next {
@@ -55,9 +57,11 @@ class ViewController: UIViewController {
             print("COUNT: \(self.pokemons.count) ")
             print("COUNT: \(self.nextURL!)")
             DispatchQueue.main.sync{self.tableView.reloadData()}
+            self.isFree = true
         }, onError: {
             error in
             print(error)
+            self.isFree = true
         })
         print("DIM: \(pokemons.count) ")
     }
@@ -104,7 +108,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
 
 private extension ViewController {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.item >= pokemons.count / 3 && self.nextURL != "NO"
+        return indexPath.item >= pokemons.count / 3 && self.nextURL != "NO" && isFree
     }
     
     func visibleIndexPathToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {

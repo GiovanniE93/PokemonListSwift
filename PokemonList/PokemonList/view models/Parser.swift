@@ -16,7 +16,7 @@ struct Parser {
         if let myUrl = urlString{
             url = URL(string: myUrl)
         } else {
-            url = URL(string: host+endpoint+"?limit=350")
+            url = URL(string: host+endpoint+"?limit=100")
         }
         if urlString == "NO" {
             return
